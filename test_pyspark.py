@@ -1,10 +1,11 @@
 import os
-os.environ["PYSPARK_PYTHON"] = r"C:\Program Files\Python310\python.exe"
-os.environ["PYSPARK_DRIVER_PYTHON"] = r"C:\Program Files\Python310\python.exe"
+os.environ["PYSPARK_PYTHON"] = r"D:\Programming\Data_Engineering\Apache_Spark\spark-env\Scripts\python.exe"
+os.environ["PYSPARK_DRIVER_PYTHON"] = r"D:\Programming\Data_Engineering\Apache_Spark\spark-env\Scripts\python.exe"
 
-from pyspark import SparkContext
+from pyspark import SparkContext ,SparkConf 
 
-sc = SparkContext(master="local", appName="MyApp")
+conf = SparkConf().setAppName("MyApp").setMaster("local")
+sc = SparkContext(conf=conf)
 
 lines = sc.textFile(r"C:\spark\README.md")
 
@@ -21,8 +22,10 @@ Pythonlines = lines.filter(lambda line : HasPython(line))
 print(Pythonlines.count())
 print(Pythonlines.first())
 
+
 print("way two : in line functions")
 Pythonlines = lines.filter(lambda line : "Python" in line)
+Pythonlines.persist()
 print(Pythonlines.count())
 print(Pythonlines.first())
 
