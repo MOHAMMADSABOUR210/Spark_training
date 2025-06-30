@@ -7,26 +7,14 @@ from pyspark import SparkContext ,SparkConf
 conf = SparkConf().setAppName("MyApp").setMaster("local")
 sc = SparkContext(conf=conf)
 
-lines = sc.textFile(r"C:\spark\README.md")
+lines = sc.textFile(r"D:\Programming\Data_Engineering\Apache_Spark\Spark_training\test_text.txt")
 
-
-print(lines.count())
-print(lines.first())
-
-
-
-print("way One : Use functions")
 def HasPython(line):
-    return "Python" in line
+    return "data" in line
 Pythonlines = lines.filter(lambda line : HasPython(line))
 print(Pythonlines.count())
-print(Pythonlines.first())
 
 
-print("way two : in line functions")
-Pythonlines = lines.filter(lambda line : "Python" in line)
-Pythonlines.persist()
-print(Pythonlines.count())
-print(Pythonlines.first())
-
-
+for line in Pythonlines.collect():
+    print(line)
+    print("----")
