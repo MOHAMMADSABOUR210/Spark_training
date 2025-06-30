@@ -13,6 +13,7 @@ lines = sc.textFile(r"D:\Programming\Data_Engineering\Apache_Spark\Spark_trainin
 DataAndEngineeringRDD = lines.filter(lambda line: "data" in line or "engineering" in line)
 print(DataAndEngineeringRDD.count())
 
+#  .take
 for line in DataAndEngineeringRDD.take(10):
     print(line)
     print("----")
@@ -20,3 +21,15 @@ for line in DataAndEngineeringRDD.take(10):
 
 print("*****")
 print(DataAndEngineeringRDD.take(10))
+
+
+#  .collect
+
+for line in DataAndEngineeringRDD.collect():
+    print(line)
+    print("----")   
+
+
+print("*****")
+print(DataAndEngineeringRDD.collect())
+
