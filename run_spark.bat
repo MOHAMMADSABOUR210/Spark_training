@@ -12,7 +12,8 @@ REM
 @REM %PYSPARK_PYTHON% test_pyspark.py
 @REM %PYSPARK_PYTHON% word_count.py
 @REM %PYSPARK_PYTHON% rdd_op.py
-%PYSPARK_PYTHON% rdd_cv.py
+@REM %PYSPARK_PYTHON% rdd_cv.py
+%PYSPARK_PYTHON% spark_Collection.py
 
 
 pause
