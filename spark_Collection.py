@@ -14,5 +14,13 @@ list2 = ['coffee', 'monkey', 'kitty']
 RDD1 = sc.parallelize(list1)
 RDD2 = sc.parallelize(list2)
 
+# distinct
 DistinctRDD = RDD1.distinct()
 print(DistinctRDD.collect())
+
+
+unionRDD = RDD1.union(RDD2)
+print(unionRDD.collect())
+
+UDRDD = unionRDD.distinct()
+print(UDRDD.collect())
