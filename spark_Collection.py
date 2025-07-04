@@ -8,7 +8,7 @@ conf = SparkConf().setAppName("MyApp").setMaster("local")
 sc = SparkContext(conf=conf)
 
 
-list1 = ['coffee', 'coffee', 'panda', 'monkry', 'tea']
+list1 = ['coffee', 'coffee', 'panda', 'monkey', 'tea']
 list2 = ['coffee', 'monkey', 'kitty']
 
 RDD1 = sc.parallelize(list1)
@@ -18,9 +18,15 @@ RDD2 = sc.parallelize(list2)
 DistinctRDD = RDD1.distinct()
 print(DistinctRDD.collect())
 
-
+# union
 unionRDD = RDD1.union(RDD2)
 print(unionRDD.collect())
 
 UDRDD = unionRDD.distinct()
 print(UDRDD.collect())
+
+
+# intersection
+intersectionRDD = RDD1.intersection(RDD2)
+print(intersectionRDD.collect())
+
