@@ -8,6 +8,11 @@ set PYSPARK_PYTHON=D:\Programming\Data_Engineering\Apache_Spark\spark-env\Script
 set PYSPARK_DRIVER_PYTHON=D:\Programming\Data_Engineering\Apache_Spark\spark-env\Scripts\python.exe
 
 REM 
-%PYSPARK_PYTHON% create_rdd.py
+@REM %PYSPARK_PYTHON% create_rdd.py
+@REM %PYSPARK_PYTHON% test_pyspark.py
+@REM %PYSPARK_PYTHON% word_count.py
+@REM %PYSPARK_PYTHON% rdd_op.py
+%PYSPARK_PYTHON% rdd_cv.py
+
 
 pause
