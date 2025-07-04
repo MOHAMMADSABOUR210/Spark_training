@@ -22,3 +22,12 @@ mapRDD = inputRDD.map(lambda num : num ** 2)
 print(mapRDD.collect())
 
 
+# flatmap
+words = ["Hello Apache Spark", "DATA_ENGITNEER"]
+lineRDD = sc.parallelize(words)
+print(lineRDD)
+
+
+flatRDD = lineRDD.flatMap(lambda st:st.split(" "))
+print(flatRDD.collect())
+
