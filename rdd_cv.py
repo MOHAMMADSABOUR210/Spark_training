@@ -31,3 +31,7 @@ print(lineRDD)
 flatRDD = lineRDD.flatMap(lambda st:st.split(" "))
 print(flatRDD.collect())
 
+
+# top example with map 
+mapRDD = lineRDD.map(lambda st: st.split(" "))
+print(mapRDD.collect())
