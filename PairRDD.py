@@ -43,11 +43,18 @@ print("resultRDD : ",resultRDD.collect())
 
 # Word count 
 Words = lines.flatMap(lambda x:x.split(" "))
-print(Words.take(5))
+print(f"First 5 Words : {Words.take(5)}")
 
 Result = Words.map(lambda x: (x,1)).reduceByKey(lambda x,y:x + y)
-print(Result.count())
-print(Result.take(5))
+print(f"Number of Unique Words : {Result.count()}")
+print(f"First 5 Unique Words and Their number : {Result.take(5)}")
+
+# sorting 
+sortedByValue = Result.sortBy(lambda x: x[1], ascending=False)
+print("Sorted By Value :", sortedByValue.take(10)) 
+
+sortedByKey = Result.sortByKey(ascending=True)
+print("Sorted By Key :", sortedByKey.take(10))
 
 
 
