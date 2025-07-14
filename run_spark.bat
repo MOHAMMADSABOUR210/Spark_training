@@ -9,12 +9,13 @@ set PYSPARK_DRIVER_PYTHON=D:\Programming\Data_Engineering\Apache_Spark\spark-env
 
 REM 
 @REM %PYSPARK_PYTHON% create_rdd.py
-%PYSPARK_PYTHON% test_pyspark.py
+@REM %PYSPARK_PYTHON% test_pyspark.py
 @REM %PYSPARK_PYTHON% word_count.py
 @REM %PYSPARK_PYTHON% rdd_op.py
 @REM %PYSPARK_PYTHON% rdd_cv.py
 @REM %PYSPARK_PYTHON% spark_Collection.py
 @REM %PYSPARK_PYTHON% CartesianM.py
+%PYSPARK_PYTHON% ReduceSpark.py
 
 
 pause
