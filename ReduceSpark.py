@@ -33,3 +33,11 @@ print(f"Min: {minRDD}")
 averageRDD = sumRDD / RDD.count()
 print(f"Average: {averageRDD}")
 
+
+
+# aggregate()
+sum_count = RDD.aggregate((0, 0),
+                          lambda acc,value: (acc[0]+value, acc[1]+1),
+                          lambda acc1, acc2 : (acc1[0]+acc2[0],acc1[1]+acc2[1]))
+
+print( f"Average in aggregate: {sum_count[0]/ float(sum_count[1])}")
