@@ -17,10 +17,27 @@ pairs = lines.map(lambda x: (x.split(" ")[0], x))
 print(pairs.count())
 print(pairs.first())
 
-print(pairs.top(10))
+print(pairs.top(5))
 
 lenpairs = lines.map(lambda x: (x.split(" ")[0], len(x)))
 print(lenpairs.take(5))
 
+print("Pairs RDD Opprations")
+print()
+Datapairs = pairs.filter(lambda KeyValue : "Data" in KeyValue[1])
+print(Datapairs.collect())
+
+
+mydata = [("panda", 0),("pink",3),("pirate",3),("panda",1),("pink",4)]
+pairRDD = sc.parallelize(mydata)
+print(pairRDD.count())
+print("pairRDD : ",pairRDD.collect())
+
+mapValuesRDD = pairRDD.mapValues(lambda x:(x,1))
+print("mapValuesRDD : ",mapValuesRDD.collect())
+
+resultRDD = mapValuesRDD.reduceByKey(lambda x,y: (x[0]+y[0],(x[1]+y[1])))
+print(resultRDD.count())
+print("resultRDD : ",resultRDD.collect())
 
 print('-'*50)
