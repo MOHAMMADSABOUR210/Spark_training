@@ -18,3 +18,11 @@ print(Pythonlines.count())
 for line in Pythonlines.collect():
     print(line)
     print("----")
+
+
+print("Number of lines : " , lines.count())
+
+
+sampleline = lines.sample(False, 0.3)
+print("Number of sample lines " , sampleline.count()
+      )
