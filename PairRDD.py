@@ -27,6 +27,7 @@ print()
 Datapairs = pairs.filter(lambda KeyValue : "Data" in KeyValue[1])
 print(Datapairs.collect())
 
+# Calculate the sum and count of values for each key using mapValues and reduceByKey
 
 mydata = [("panda", 0),("pink",3),("pirate",3),("panda",1),("pink",4)]
 pairRDD = sc.parallelize(mydata)
@@ -39,5 +40,15 @@ print("mapValuesRDD : ",mapValuesRDD.collect())
 resultRDD = mapValuesRDD.reduceByKey(lambda x,y: (x[0]+y[0],(x[1]+y[1])))
 print(resultRDD.count())
 print("resultRDD : ",resultRDD.collect())
+
+# Word count 
+Words = lines.flatMap(lambda x:x.split(" "))
+print(Words.take(5))
+
+Result = Words.map(lambda x: (x,1)).reduceByKey(lambda x,y:x + y)
+print(Result.count())
+print(Result.take(5))
+
+
 
 print('-'*50)
