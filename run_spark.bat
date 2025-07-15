@@ -16,7 +16,8 @@ REM
 @REM %PYSPARK_PYTHON% spark_Collection.py
 @REM %PYSPARK_PYTHON% CartesianM.py
 @REM %PYSPARK_PYTHON% ReduceSpark.py
-%PYSPARK_PYTHON% PairRDD.py
+@REM %PYSPARK_PYTHON% PairRDD.py
+%PYSPARK_PYTHON% PageRankAlgo.py
 
 
 pause
